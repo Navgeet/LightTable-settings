@@ -10,7 +10,10 @@
 ;; of all the commands you can execute, start typing a word related to the thing you
 ;; want to do in between the square brackets (e.g. type "editor").
 
-{:+ {:app {}
+{:+ {:app {"ctrl-x 3" [:tabset.new]
+           "shift-right" [:tabset.next]
+           "shift-left" [:tabset.prev]}
 
      :editor {"alt-w" [:editor.watch.watch-selection]
               "alt-shift-w" [:editor.watch.unwatch]}}}
+ :- {:editor.keys.emacs {"ctrl-n" [(:emacs.keymap-cmd "Ctrl-N")]}}}
