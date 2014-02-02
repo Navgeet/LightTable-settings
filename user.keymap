@@ -12,7 +12,11 @@
 
 {:+ {:app {"ctrl-x 3" [:tabset.new]
            "shift-right" [:tabset.next]
-           "shift-left" [:tabset.prev]}
+           "shift-left" [:tabset.prev]
+           "alt-x" [:show-commandbar-transient]
+           "shift-down" [:tabs.next]
+           "shift-up" [:tabs.prev]
+           "ctrl-t" [:new-file]}
 
      :editor {"alt-w" [:editor.watch.watch-selection]
               "alt-shift-w" [:editor.watch.unwatch]}}}
