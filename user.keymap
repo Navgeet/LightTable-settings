@@ -43,7 +43,8 @@
                          "ctrl-t" [(:emacs.keymap-cmd "Ctrl-T")]
                          "ctrl-up" [(:emacs.keymap-cmd "Ctrl-Up")]
                          "ctrl-down" [(:emacs.keymap-cmd "Ctrl-Down")]
-                         "delete" [(:emacs.keymap-cmd "Delete")]}
+                         "delete" [(:emacs.keymap-cmd "Delete")]
+                         "backspace" [(:emacs.keymap-cmd "Backspace")]}
      :editor.keys.normal {"\"" [(:editor.repeat-pair "\"")]
                           "(" [(:editor.open-pair "(")]
                           ")" [(:editor.close-pair ")")]
