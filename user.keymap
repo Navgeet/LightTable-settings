@@ -7,5 +7,48 @@
            "ctrl-t" [:new-file]}
 
      :editor {"alt-w" [:editor.watch.watch-selection]
-              "alt-shift-w" [:editor.watch.unwatch]}}}
- :- {:editor.keys.emacs {"ctrl-n" [(:emacs.keymap-cmd "Ctrl-N")]}}}
+              "alt-shift-w" [:editor.watch.unwatch]}
+     :editor.clj {;; moving in a sea of parens
+                  "ctrl-right" [:subpar.move.forward]
+                  "ctrl-left" [:subpar.move.backward]
+                  "ctrl-down" [:subpar.move.forward-down]
+                  "ctrl-up" [:subpar.move.backward-up]
+                  ;; grow and shrink
+                  "ctrl-shift-0" [:subpar.grow.right]
+                  "ctrl-shift-9" [:subpar.barf.right]
+                  "ctrl-shift-[" [:subpar.grow.left]
+                  "ctrl-shift-]" [:subpar.barf.left]
+                  ;; opening/closing a pair of delimiters
+                  "(" [(:subpar.open-pair "()")]
+                  ")" [(:subpar.close-pair ")")]
+                  "{" [(:subpar.open-pair "{}")]
+                  "}" [(:subpar.close-pair "}")]
+                  "[" [(:subpar.open-pair "[]")]
+                  "]" [(:subpar.close-pair "]")]
+                  "\"" [:subpar.insert-double-quote]
+                  ;; splice
+                  "alt-s" [:subpar.splice]
+                  "alt-up" [:subpar.splice.delete-backward]
+                  "alt-down" [:subpar.splice.delete-forward]
+                  ;; intelligent del and backspace
+                  "backspace" [:subpar.delete.left]
+                  "delete" [:subpar.delete.right]
+                  ;; wrap in parens
+                  "alt-shift-9" [(:subpar.open-pair "()")
+                                 :subpar.grow.right]}
+     :editor.keys.emacs {"alt-x" [:show-commandbar-transient]
+                         "alt-right" [(:emacs.keymap-cmd "Alt-F")]
+                         "alt-left" [(:emacs.keymap-cmd "Alt-B")]}}
+ :- {:editor.keys.emacs {"ctrl-n" [(:emacs.keymap-cmd "Ctrl-N")]
+                         "ctrl-t" [(:emacs.keymap-cmd "Ctrl-T")]
+                         "ctrl-up" [(:emacs.keymap-cmd "Ctrl-Up")]
+                         "ctrl-down" [(:emacs.keymap-cmd "Ctrl-Down")]
+                         "delete" [(:emacs.keymap-cmd "Delete")]}
+     :editor.keys.normal {"\"" [(:editor.repeat-pair "\"")]
+                          "(" [(:editor.open-pair "(")]
+                          ")" [(:editor.close-pair ")")]
+                          "[" [(:editor.open-pair "[")]
+                          "{" [(:editor.open-pair "{")]
+                          "]" [(:editor.close-pair "]")]
+                          "}" [(:editor.close-pair "}")]
+                          "backspace" [:editor.backspace-pair]}}}
